@@ -12,28 +12,55 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpControllers()
+        settingControllers()
     }
 
-    private func setUpControllers() {
-        let homeNavigationController = UINavigationController(rootViewController: HomeViewController())
-        homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
-        let exploreNavigationController = UINavigationController(rootViewController: ExploreViewController())
-        exploreNavigationController.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(systemName: "safari"), tag: 2)
-        let cameraController = CameraViewController()
-        cameraController.tabBarItem = UITabBarItem(title: "Camera", image: UIImage(systemName: "camera"), tag: 3)
-        let notificationsNavigationController = UINavigationController(rootViewController: NotificationsViewController())
-        notificationsNavigationController.tabBarItem = UITabBarItem(title: "Notifications", image: UIImage(systemName: "bell"), tag: 4)
-        let profileNavigationController = UINavigationController(rootViewController: ProfileViewController())
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 5)
+    private func settingControllers() {
+        let homeNavController = setUpHomeNavController(HomeViewController())
+        let exploreNavController = setUpExploreNavController(ExploreViewController())
+        let cameraController = setUpCameraController(CameraViewController())
+        let notificationsNavController = setUpNotificationNavController(NotificationsViewController())
+        let profileNavController = setUpProfileNavController(ProfileViewController())
 
         setViewControllers(
-            [homeNavigationController,
-             exploreNavigationController,
+            [homeNavController,
+             exploreNavController,
              cameraController,
-             notificationsNavigationController,
-             profileNavigationController],
+             notificationsNavController,
+             profileNavController],
             animated: false)
+    }
+    
+    private func setUpHomeNavController(_ viewController: UIViewController) -> UINavigationController {
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 1)
+        navController.navigationBar.backgroundColor = .clear
+        navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navController.navigationBar.shadowImage = UIImage()
+        return navController
+    }
+    
+    private func setUpExploreNavController(_ viewController: UIViewController) -> UINavigationController {
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(systemName: "safari"), tag: 2)
+        return navController
+    }
+    
+    private func setUpCameraController(_ viewController: UIViewController) -> UIViewController {
+        viewController.tabBarItem = UITabBarItem(title: "Camera", image: UIImage(systemName: "camera"), tag: 3)
+        return viewController
+    }
+    
+    private func setUpNotificationNavController(_ viewController: UIViewController) -> UINavigationController {
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.tabBarItem = UITabBarItem(title: "Notifications", image: UIImage(systemName: "bell"), tag: 4)
+        return navController
+    }
+    
+    private func setUpProfileNavController(_ viewController: UIViewController) -> UINavigationController {
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 5)
+        return navController
     }
 
 }
