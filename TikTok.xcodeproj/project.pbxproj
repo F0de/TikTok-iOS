@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		F50016C32C38AD2600A341DA /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50016C22C38AD2600A341DA /* PostModel.swift */; };
+		F519CB032C3E2B3D00F04A53 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F519CB022C3E2B3D00F04A53 /* SnapKit */; };
+		F519CB052C3EB99700F04A53 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519CB042C3EB99700F04A53 /* CommentsViewController.swift */; };
 		F57191F02C31EAF9006C67A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57191EF2C31EAF9006C67A3 /* AppDelegate.swift */; };
 		F57191F22C31EAF9006C67A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57191F12C31EAF9006C67A3 /* SceneDelegate.swift */; };
 		F57191F42C31EAF9006C67A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57191F32C31EAF9006C67A3 /* HomeViewController.swift */; };
 		F57191F92C31EAFB006C67A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F57191F82C31EAFB006C67A3 /* Assets.xcassets */; };
 		F57191FC2C31EAFB006C67A3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F57191FB2C31EAFB006C67A3 /* Base */; };
+		F579B0F72C402C94006E49B2 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F579B0F62C402C94006E49B2 /* PostComment.swift */; };
+		F579B0F92C402CC8006E49B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F579B0F82C402CC8006E49B2 /* User.swift */; };
+		F579B0FB2C418E24006E49B2 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F579B0FA2C418E24006E49B2 /* CommentTableViewCell.swift */; };
 		F59CED7B2C37124B0021D40E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F59CED7A2C37124B0021D40E /* SDWebImage */; };
 		F59CED7D2C382F140021D40E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59CED7C2C382F140021D40E /* Extensions.swift */; };
 		F59DC2D02C33601D0021BBC8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F59DC2CF2C33601D0021BBC8 /* FirebaseAnalytics */; };
@@ -41,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		F50016C22C38AD2600A341DA /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		F519CB042C3EB99700F04A53 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		F57191EC2C31EAF9006C67A3 /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57191EF2C31EAF9006C67A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F57191F12C31EAF9006C67A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,9 @@
 		F57191F82C31EAFB006C67A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F57191FB2C31EAFB006C67A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F57191FD2C31EAFB006C67A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F579B0F62C402C94006E49B2 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
+		F579B0F82C402CC8006E49B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F579B0FA2C418E24006E49B2 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		F59CED7C2C382F140021D40E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F5C6EBB62C334485008E12B8 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F5C6EBB82C334499008E12B8 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +86,7 @@
 				F59DC2D22C33601D0021BBC8 /* FirebaseAnalyticsSwift in Frameworks */,
 				F59DC2D62C33601D0021BBC8 /* FirebaseCrashlytics in Frameworks */,
 				F59DC2DC2C33601D0021BBC8 /* FirebaseStorage in Frameworks */,
+				F519CB032C3E2B3D00F04A53 /* SnapKit in Frameworks */,
 				F59DC2D42C33601D0021BBC8 /* FirebaseAuth in Frameworks */,
 				F59DC2D02C33601D0021BBC8 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -149,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				F50016C22C38AD2600A341DA /* PostModel.swift */,
+				F579B0F62C402C94006E49B2 /* PostComment.swift */,
+				F579B0F82C402CC8006E49B2 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 				F5C6EBC22C3344F7008E12B8 /* SignUpViewController.swift */,
 				F5C6EBC42C334501008E12B8 /* SettingsViewController.swift */,
 				F5C6EBCA2C334578008E12B8 /* PostViewController.swift */,
+				F519CB042C3EB99700F04A53 /* CommentsViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 		F5C6EBC92C334549008E12B8 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F579B0FA2C418E24006E49B2 /* CommentTableViewCell.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -237,6 +251,7 @@
 				F59DC2D92C33601D0021BBC8 /* FirebaseDatabaseSwift */,
 				F59DC2DB2C33601D0021BBC8 /* FirebaseStorage */,
 				F59CED7A2C37124B0021D40E /* SDWebImage */,
+				F519CB022C3E2B3D00F04A53 /* SnapKit */,
 			);
 			productName = TikTok;
 			productReference = F57191EC2C31EAF9006C67A3 /* TikTok.app */;
@@ -269,6 +284,7 @@
 			packageReferences = (
 				F59DC2CE2C33601D0021BBC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F59CED792C37124B0021D40E /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				F519CB012C3E2B3D00F04A53 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = F57191ED2C31EAF9006C67A3 /* Products */;
 			projectDirPath = "";
@@ -325,21 +341,25 @@
 				F5C6EBD52C3345EA008E12B8 /* HapticsManager.swift in Sources */,
 				F59CED7D2C382F140021D40E /* Extensions.swift in Sources */,
 				F5C6EBD12C3345B7008E12B8 /* DatabaseManager.swift in Sources */,
+				F579B0FB2C418E24006E49B2 /* CommentTableViewCell.swift in Sources */,
 				F5C6EBB72C334485008E12B8 /* ExploreViewController.swift in Sources */,
 				F5C6EBBF2C3344DE008E12B8 /* UserListViewController.swift in Sources */,
 				F5C6EBC52C334501008E12B8 /* SettingsViewController.swift in Sources */,
 				F5C6EBCB2C334578008E12B8 /* PostViewController.swift in Sources */,
 				F5C6EBB92C334499008E12B8 /* CameraViewController.swift in Sources */,
+				F519CB052C3EB99700F04A53 /* CommentsViewController.swift in Sources */,
 				F5C6EBC72C334520008E12B8 /* TabBarViewController.swift in Sources */,
 				F57191F42C31EAF9006C67A3 /* HomeViewController.swift in Sources */,
 				F5C6EBC32C3344F7008E12B8 /* SignUpViewController.swift in Sources */,
 				F5C6EBD32C3345D3008E12B8 /* AuthenticationManager.swift in Sources */,
 				F5C6EBBB2C3344B7008E12B8 /* NotificationsViewController.swift in Sources */,
+				F579B0F72C402C94006E49B2 /* PostComment.swift in Sources */,
 				F5C6EBC12C3344EA008E12B8 /* SignInViewController.swift in Sources */,
 				F50016C32C38AD2600A341DA /* PostModel.swift in Sources */,
 				F5C6EBBD2C3344C4008E12B8 /* ProfileViewController.swift in Sources */,
 				F5C6EBCF2C3345A7008E12B8 /* StorageManager.swift in Sources */,
 				F57191F02C31EAF9006C67A3 /* AppDelegate.swift in Sources */,
+				F579B0F92C402CC8006E49B2 /* User.swift in Sources */,
 				F57191F22C31EAF9006C67A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +590,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F519CB012C3E2B3D00F04A53 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		F59CED792C37124B0021D40E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -589,6 +617,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F519CB022C3E2B3D00F04A53 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F519CB012C3E2B3D00F04A53 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		F59CED7A2C37124B0021D40E /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F59CED792C37124B0021D40E /* XCRemoteSwiftPackageReference "SDWebImage" */;

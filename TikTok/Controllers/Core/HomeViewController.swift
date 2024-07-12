@@ -59,7 +59,9 @@ class HomeViewController: UIViewController {
             return
         }
         
-        followingPagingController.setViewControllers([PostViewController(model: model)], direction: .forward, animated: false)
+        let vc = PostViewController(model: model)
+        vc.delegate = self
+        followingPagingController.setViewControllers([vc], direction: .forward, animated: false)
         followingPagingController.dataSource = self
     }
     
@@ -67,8 +69,9 @@ class HomeViewController: UIViewController {
         guard let model = forYouPosts.first else {
             return
         }
-        
-        forYouPagingController.setViewControllers([PostViewController(model: model)], direction: .forward, animated: false)
+        let vc = PostViewController(model: model)
+        vc.delegate = self
+        forYouPagingController.setViewControllers([vc], direction: .forward, animated: false)
         forYouPagingController.dataSource = self
     }
     
@@ -110,6 +113,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+//MARK: Extensions
 extension HomeViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let fromPost = (viewController as? PostViewController)?.model else {
@@ -128,6 +132,7 @@ extension HomeViewController: UIPageViewControllerDataSource {
         let priorIndex = index - 1
         let model = currentPosts[priorIndex]
         let vc = PostViewController(model: model)
+        vc.delegate = self
         return vc
     }
     
@@ -149,6 +154,7 @@ extension HomeViewController: UIPageViewControllerDataSource {
         let nextIndex = index + 1
         let model = currentPosts[nextIndex]
         let vc = PostViewController(model: model)
+        vc.delegate = self
         return vc
     }
     
@@ -163,6 +169,54 @@ extension HomeViewController: UIScrollViewDelegate {
             segmentedControl.selectedSegmentIndex = 0
         } else if scrollView.contentOffset.x > (view.width/2) {
             segmentedControl.selectedSegmentIndex = 1
+        }
+    }
+}
+
+extension HomeViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        horizontalScrollView.isScrollEnabled = false
+        if horizontalScrollView.contentOffset.x == 0 {
+            // following page
+            followingPagingController.dataSource = nil // disable scrolling
+        } else {
+            // for you page
+            forYouPagingController.dataSource = nil // disable scrolling
+        }
+        
+        let vc = CommentsViewController(post: post)
+        vc.delegate = self
+        addChild(vc)
+        vc.didMove(toParent: self)
+        view.addSubview(vc.view)
+        let frame = CGRect(x: 0, y: view.height, width: view.width, height: view.height * 0.76)
+        vc.view.frame = frame
+        UIView.animate(withDuration: 0.2) {
+            vc.view.frame = CGRect(x: 0, y: self.view.height - frame.height, width: frame.width, height: frame.height)
+        }
+    }
+
+}
+
+extension HomeViewController: CommentViewControllerDelegate {
+    func didTapCloseForComments(with viewController: CommentsViewController) {
+        // close comments with animation
+        let frame = viewController.view.frame
+        UIView.animate(withDuration: 0.2) {
+            viewController.view.frame = CGRect(x: 0, y: self.view.height, width: frame.width, height: frame.height)
+        } completion: { [weak self] done in
+            if done {
+                DispatchQueue.main.async {
+                    // remove comment vc as child
+                    viewController.view.removeFromSuperview()
+                    viewController.removeFromParent()
+                    
+                    // allow horizontal and vertical scroll
+                    self?.horizontalScrollView.isScrollEnabled = true
+                    self?.forYouPagingController.dataSource = self
+                    self?.followingPagingController.dataSource = self
+                }
+            }
         }
     }
 }
